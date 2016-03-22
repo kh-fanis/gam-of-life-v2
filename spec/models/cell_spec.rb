@@ -10,30 +10,30 @@ describe Cell do
     end
 
     it 'should be alive' do
-      expect(ali).to be_alive
+      expect(alive_cell).to be_alive
     end
   end
 
   context '#die' do
     it 'should die dead cell' do
       dead_cell.die!
-      expect(dead).to be_dead
+      expect(dead_cell).to be_dead
     end
 
     it 'should die alive cell' do
       alive_cell.die!
-      expect(alive_cell).to be_alive
+      expect(alive_cell).to be_dead
     end
   end
 
   context '#revive' do
     it 'should revive dead cell' do
       dead_cell.revive!
-      expect(dead).to be_alive
+      expect(dead_cell).to be_alive
     end
 
     it 'should revive alive cell' do
-      alive_cell.alive!
+      alive_cell.revive!
       expect(alive_cell).to be_alive
     end
   end
@@ -42,7 +42,7 @@ describe Cell do
   context '#toggle' do
     it 'should toggle dead cell' do
       dead_cell.toggle!
-      expect(dead).to be_alive
+      expect(dead_cell).to be_alive
     end
 
     it 'should toggle alive cell' do

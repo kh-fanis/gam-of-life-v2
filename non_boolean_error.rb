@@ -1,0 +1,2 @@
+class NonBooleanError < RuntimeError
+end

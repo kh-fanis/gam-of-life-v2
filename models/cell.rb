@@ -27,4 +27,8 @@ class Cell
   def toggle!
     @state = !@state
   end
+
+  def to_s
+    "#<Cell:#{__id__} state:#{state}>"
+  end
 end

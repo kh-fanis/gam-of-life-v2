@@ -11,8 +11,8 @@ describe Grid do
       end
 
       it 'should have no alive cell inside' do
-        0.upto(8) { |y|
-          0.upto(8) { |x|
+        0.upto(7) { |y|
+          0.upto(7) { |x|
             expect(grid.cell_at(y, x)).to be_dead
           }
         }

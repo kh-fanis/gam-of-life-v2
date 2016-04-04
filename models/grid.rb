@@ -4,8 +4,10 @@ class Grid
   @@DEFAULT_WIDTH  = 8
   @@DEFAULT_HEIGHT = 8
 
+  attr_reader :cells
+
   def initialize height = @@DEFAULT_WIDTH, width = @@DEFAULT_HEIGHT
-    @cells = Array.new(height, Array.new(width, Cell.new))
+    @cells = Array.new(height) { Array.new(width) { Cell.new } }
   end
 
   def cell_at y, x

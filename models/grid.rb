@@ -1,5 +1,6 @@
 require_relative './cell'
 
+# Keeps cells inside
 class Grid
   @@DEFAULT_WIDTH  = 8
   @@DEFAULT_HEIGHT = 8
@@ -14,15 +15,32 @@ class Grid
     @cells[y][x]
   end
 
-  def width
+  def height
     @cells.count
   end
 
-  def height
+  def width
     @cells[0].count
   end
 
-  def to_s
+  # checking all cells inside are dead?
+  def all_dead?
+    @cells.flatten.select(&:alive?).count == 0
+  end
+
+  # Better Object outputting
+  def inspect
     "#<Grid:#{__id__} width:#{width}, height:#{height}>"
+  end
+
+  # Comparing
+  def eql? other
+    if other.height == height and other.width == width
+      (0...height).map do |row|
+        (0...width).map do |cell|
+          cell_at(row, cell).eql?(other.cell_at(row, cell))
+        end
+      end
+    end
   end
 end

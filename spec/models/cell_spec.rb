@@ -54,4 +54,14 @@ describe Cell do
       expect(alive_cell).to be_dead
     end
   end
+
+  context '#eql?' do
+    it 'should be the same another dead cell' do
+      expect(cell).to be_eql(Cell.new)
+    end
+
+    it 'should be the same another dead cell' do
+      expect(alive_cell).to be_eql(Cell.new(true))
+    end
+  end
 end

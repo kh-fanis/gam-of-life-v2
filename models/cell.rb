@@ -1,5 +1,7 @@
-require_relative '../non_boolean_error'
+require_relative '../errors'
 
+# Keeps state of cell
+# Could be alive or dead
 class Cell
   attr_accessor :state
 
@@ -28,7 +30,13 @@ class Cell
     @state = !@state
   end
 
-  def to_s
-    "#<Cell:#{__id__} state:#{state}>"
+  # Better Object outputting
+  def inspect
+    "#<Cell:#{__id__} state:#{state ? :alive : :dead}>"
+  end
+
+  # Comparing
+  def eql? other
+    (other.alive? and alive?) or (other.dead? and dead?)
   end
 end

@@ -28,4 +28,10 @@ describe Grid do
       end
     end
   end
+
+  context '#eql?' do
+    it 'should be the same another grid' do
+      expect(grid).to be_eql(Grid.new)
+    end
+  end
 end

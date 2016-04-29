@@ -1,0 +1,4 @@
+Hello, to generate iteration press Enter!
+Generatioin: <%= generation_number %>
+
+<%= grid.to_s %>

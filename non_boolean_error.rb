@@ -1,2 +1,0 @@
-class NonBooleanError < RuntimeError
-end
